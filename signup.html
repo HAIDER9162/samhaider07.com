@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haider Form</title>
+
+    <!-- Add icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="signup.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Registration Form ~ Haider Hashmi</h2>
+        <div class="form-container">
+            <form action="./conn/index.html" method="post" name="google-sheet">
+
+                <div class="input-name">
+                    <i class="fa fa-user"></i>
+                    <input type="text" placeholder="First Name" class="name" required name="First Name">
+
+                    <span>
+                        <i class="fa fa-user"></i>
+                        <input type="text" placeholder="Last Name" class="name" required name="Last Name">
+                    </span>
+                </div>
+
+                <div class="input-name">
+                    <i class="fa fa-envelope lock"></i>
+                    <input type="email" placeholder="Email" class="text-name" required name="Email">
+                </div>
+
+                <div class="input-name">
+                    <i class="fa fa-lock lock"></i>
+                    <input type="password" placeholder="Password" class="text-name" required name="Conform Password">
+                </div>
+
+                <div class="input-name">
+                    <i class="fa fa-lock email"></i>
+                    <input type="password" placeholder="Conform Password" class="text-name"  required>
+                </div>
+
+                <div class="input-name">
+                    
+                    <input type="radio" class="radio-button" name="Gender" value="Male">
+                    <label style="margin: 10px;">Male</label>
+
+                    <input type="radio" class="radio-button" name="Gender" value="Female">
+                    <label style="margin: 10px;">Female</label>
+
+                    <input type="radio" class="radio-button" name="Gender" value="Other">
+                    <label style="margin: 10px;">Other</label>
+
+                </div>
+
+                <div class="input-name">
+
+                    <select class="country" name="Country">
+                        <option value="Not Selected">Select Country</option>
+                        <option value="India">India</option>
+                        <option value="Nepal">Nepal</option>
+                        <option value="Bhutan">Bhutan</option>
+                        <option value="Bangladesh">Bangladesh</option>
+                    </select>
+                    <div class="arrow"></div>
+
+                </div>
+
+                <div class="input-name">
+                    <input type="checkbox" id="cb" class="check-button" required>
+                    <label for="cb" class="check">I accept your turms and condition.</label>
+                </div>
+
+                <div class="input-name">
+                    <input type="submit" class="button" value="SignUp">
+                </div>
+                
+
+            </form>
+        </div>
+    </div>
+
+
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwCqpfqH5lvceWTdnlsOx6fdIAuiQC8OI3hqxZMbLVIAaqSLZs75afxqH9E-SkFO5Wc/exec'
+        const form = document.forms['google-sheet']
+      
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => alert("Thanks for Contacting us..! We Will Contact You Soon..."))
+            .catch(error => console.error('Error!', error.message))
+        })
+      </script>
+
+
+</body>
+</html>
